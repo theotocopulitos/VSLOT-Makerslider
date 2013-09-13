@@ -3,10 +3,12 @@ fudge_r = 0.3;
 nudge = 0.01;
 long=100;
 
+error_printing = 1;
+
 bolt_head_inner_r = 11/2;
-bolt_head_r = 12.67/2 + fudge_r;
+bolt_head_r = 12.67/2 + fudge_r + error_printing;
 bolt_head_d = 8.0;
-bolt_flange_r = 15.5/2 + fudge_r;
+bolt_flange_r = 15.5/2 + fudge_r + 2*error_printing;
 bolt_flange_d = 2.0;
 bolt_flange_extra_d = 1.0;
 bolt_flange_space_d = 5.5;
@@ -53,5 +55,5 @@ difference() {
         cylinder(r=mount_hole_r, h=long, center=true);
         translate([0,0,mount_d-mount_head_d+nudge])
           cylinder(r=mount_head_r, h=mount_head_d);
-      }
+     }
 }
